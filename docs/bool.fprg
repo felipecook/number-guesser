@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="ryanw"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2019-01-24 01:39:30 PM"/>
+        <attribute name="created" value="cnlhbnc7TVNJOzIwMTktMDEtMjM7MDQ6MzI6MDEgUE07MjA2Ng=="/>
+        <attribute name="edited" value="cnlhbnc7TVNJOzIwMTktMDEtMjQ7MDE6Mzk6MzAgUE07MzsyMTgz"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="repeat" type="Boolean" array="False" size=""/>
+            <do expression="repeat">
+                <declare name="repeat2" type="Boolean" array="False" size=""/>
+                <declare name="guess" type="Integer" array="False" size=""/>
+                <declare name="randomized" type="Integer" array="False" size=""/>
+                <assign variable="randomized" expression="Random(101)"/>
+                <output expression="&quot;Please input a number between 1 and 100. Press 0 to give up.&quot;" newline="True"/>
+                <do expression="repeat2">
+                    <input variable="guess"/>
+                    <if expression="guess = 0">
+                        <then>
+                            <assign variable="repeat2" expression="false"/>
+                        </then>
+                        <else>
+                            <if expression="guess &lt; randomized">
+                                <then>
+                                    <output expression="&quot;That's too low&quot;" newline="True"/>
+                                    <assign variable="repeat2" expression="true"/>
+                                </then>
+                                <else>
+                                    <if expression="guess &gt; randomized">
+                                        <then>
+                                            <output expression="&quot;That's too high&quot;" newline="True"/>
+                                            <assign variable="repeat2" expression="true"/>
+                                        </then>
+                                        <else>
+                                            <if expression="guess = randomized">
+                                                <then>
+                                                    <output expression="&quot;That's right!&quot;" newline="True"/>
+                                                    <assign variable="repeat2" expression="false"/>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </do>
+                <output expression="&quot;Do you want to play again? Yes or no&quot;" newline="True"/>
+                <declare name="answer" type="String" array="False" size=""/>
+                <input variable="answer"/>
+                <if expression="char(answer, 0) == &quot;y&quot; or char (answer, 0) == &quot;Y&quot;">
+                    <then>
+                        <assign variable="repeat" expression="true"/>
+                    </then>
+                    <else>
+                        <assign variable="repeat" expression="false"/>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+</flowgorithm>
